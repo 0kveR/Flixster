@@ -1,5 +1,6 @@
 package com.example.flixster
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.RequestParams
@@ -17,11 +17,10 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.Headers
 import org.json.JSONArray
-import org.json.JSONObject
 
 private const val API_KEY = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
 
-class MovieFragment: Fragment(), OnListFragmentInteractionListener {
+class MovieFragment: Fragment(), OnMovieListFragmentInteractionListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,7 +29,7 @@ class MovieFragment: Fragment(), OnListFragmentInteractionListener {
         val progressBar = view.findViewById<View>(R.id.progress) as ContentLoadingProgressBar
         val recyclerView = view.findViewById<View>(R.id.list) as RecyclerView
         val context = view.context
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = HorizontalLayoutManager(context)
         updateAdapter(progressBar, recyclerView)
         return view
     }
@@ -45,7 +44,7 @@ class MovieFragment: Fragment(), OnListFragmentInteractionListener {
 
         // Using the client, perform the HTTP request
         client [
-                "https://api.themoviedb.org/3/movie/now_playing?api_key=$API_KEY",
+                "https://api.themoviedb.org/3/trending/movie/week?api_key=$API_KEY",
                 params,
                 object : JsonHttpResponseHandler() {
                     override fun onSuccess(
@@ -87,7 +86,12 @@ class MovieFragment: Fragment(), OnListFragmentInteractionListener {
     }
 
     override fun onItemClick(item: Movie) {
-        Toast.makeText(context, "test: " + item.title, Toast.LENGTH_LONG).show()
-    }
+        val intent= Intent(this.context, InfoActivity::class.java)
 
+        intent.putExtra("title", item.title)
+        intent.putExtra("imageURL", "https://image.tmdb.org/t/p/w500/${item.movieImageUrl}")
+        intent.putExtra("description", item.description)
+
+        startActivity(intent)
+    }
 }

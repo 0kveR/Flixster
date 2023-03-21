@@ -8,8 +8,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val supportFragmentManager = supportFragmentManager
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.content, MovieFragment(), null).commit()
+        val fm = supportFragmentManager
+        fm.beginTransaction().replace(R.id.content1, MovieFragment()).commit()
+        fm.beginTransaction().replace(R.id.content2, ShowFragment()).commit()
     }
 }
