@@ -1,10 +1,10 @@
-# Android Project 4 - *Name of App Here*
+# Android Project 4 - *Flixster*
 
-Submitted by: **Your Name Here**
+Submitted by: **Krrish Verma**
 
-**Name of your app** is a movie browsing app that allows users to browse ... [TODO]
+**Flixster** is a movie browsing app that allows users to browse the top trending movies and TV shows of the week!
 
-Time spent: **X** hours spent in total
+Time spent: **3** hours spent in total
 
 ## Required Features
 
@@ -34,7 +34,7 @@ Here's a walkthrough of implemented user stories:
 <img src='./recording.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...
+GIF created with ScreenToGif
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -42,11 +42,11 @@ GIF created with ...
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I had difficulty adding 2 FrameLayouts in a single activity but I fixed it by removing the third null parameter in the function call. I also had trouble adjusting the contents in the frame layouts and fixed it by adding a constraint layout inside of the Frames.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2023 Krrish Verma
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
