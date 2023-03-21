@@ -4,7 +4,7 @@ Submitted by: **Krrish Verma**
 
 **Flixster** is a movie browsing app that allows users to browse the top trending movies and TV shows of the week!
 
-Time spent: **3** hours spent in total
+Time spent: **4** hours spent in total
 
 ## Required Features
 
